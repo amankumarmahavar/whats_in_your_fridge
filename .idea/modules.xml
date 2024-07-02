@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/whats_in_your_fridge.iml" filepath="$PROJECT_DIR$/whats_in_your_fridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/whats_in_your_fridge_android.iml" filepath="$PROJECT_DIR$/android/whats_in_your_fridge_android.iml" />
+    </modules>
+  </component>
+</project>
