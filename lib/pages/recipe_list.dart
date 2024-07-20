@@ -17,7 +17,7 @@ class RecipeList extends StatelessWidget {
         },
       );
     } on Exception catch (e) {
-      Center(
+      const Center(
         child: Text('Something went wrong ... '),
       );
       return Container();

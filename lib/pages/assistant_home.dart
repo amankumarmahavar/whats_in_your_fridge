@@ -93,23 +93,22 @@ class _AssistantHomeState extends State<AssistantHome> {
     return Scaffold(
       appBar: AppBar(
         surfaceTintColor: kSkiesh,
-        title: Text(
-          'Assistant',
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: kBlack),
+        title: const Text(
+          'Recipe Assistant',
+          style: TextStyle(fontWeight: FontWeight.w600, color: kBlack),
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          height: MediaQuery.of(context).size.height / 1.1  ,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               !_showRecipe
-                  ? HomeWidget(suggessions: suggessions)
+                  ? Expanded(child: HomeWidget(suggessions: suggessions))
                   : Expanded(child: RecipeList(recipeData: recipeData)),
               AssistantMic(
                 speechToText: _speechToText,

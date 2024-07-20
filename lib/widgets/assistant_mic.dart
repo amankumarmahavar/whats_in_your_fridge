@@ -15,11 +15,11 @@ class AssistantMic extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 24),
+      margin: const EdgeInsets.only(bottom: 24),
       child: IconButton.filled(
         onPressed: speechToText.isNotListening ? startListening : stopListening,
         icon: Padding(
-          padding: EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
           child: Icon(
             speechToText.isNotListening ? Icons.mic_off : Icons.mic,
             size: 28,
@@ -27,7 +27,7 @@ class AssistantMic extends StatelessWidget {
             color: kBlack,
           ),
         ),
-        style: ButtonStyle(
+        style: const ButtonStyle(
             backgroundColor: WidgetStatePropertyAll(kSkin)),
       ),
     );

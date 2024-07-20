@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:whats_in_your_fridge/services/api_requests.dart';
 import 'package:whats_in_your_fridge/utils/colors.dart';
+import 'package:whats_in_your_fridge/utils/constant.dart';
 
 // https://api.spoonacular.com/recipes/634873/information?apiKey=2166f50937b34677ab4602d5485baa83
 
@@ -30,12 +31,12 @@ class _RecipePageState extends State<RecipePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body:  recipeData != null
+                ? Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            recipeData != null
-                ? Container(
+           SizedBox(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     // color: Colors.green,
@@ -44,7 +45,7 @@ class _RecipePageState extends State<RecipePage> {
                         Image.network(
                             fit: BoxFit.fitHeight,
                             height: 400,
-                            'https://img.spoonacular.com/recipes/656544-312x231.jpg'),
+                            'https://img.spoonacular.com/recipes/${widget.id}-312x231.jpg'),
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
@@ -58,7 +59,7 @@ class _RecipePageState extends State<RecipePage> {
                                         bottomRight: Radius.zero)),
                             child: SingleChildScrollView(
                               child: Padding(
-                                padding: EdgeInsets.all(32.0),
+                                padding: const EdgeInsets.all(32.0),
                                 child: RecipeProcedure(
                                   recipeData: recipeData,
                                 ),
@@ -69,13 +70,14 @@ class _RecipePageState extends State<RecipePage> {
                       ],
                     ),
                   )
-                : Center(
-                    child: CircularProgressIndicator(
-                    color: kPink,
-                  ))
+               
           ],
         ),
-      ),
+      ): const Center(
+        child:  CircularProgressIndicator(
+        color: kPink,
+                          ),
+      )
     );
   }
 }
@@ -89,13 +91,13 @@ class RecipeProcedure extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(right: 16),
+          padding: const EdgeInsets.only(right: 16),
           child: Text(
             recipeData['title'],
-            style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         RecipeTabs(
@@ -124,7 +126,6 @@ class _RecipeTabsState extends State<RecipeTabs>
     _tabController.addListener(() {
       setState(() {});
     });
-    // TODO: implement initState
     super.initState();
   }
 
@@ -135,47 +136,47 @@ class _RecipeTabsState extends State<RecipeTabs>
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 12.0),
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
             decoration: BoxDecoration(
                 border: Border.all(), borderRadius: BorderRadius.circular(21)),
             child: TabBar(
                 controller: _tabController,
                 dividerHeight: 0,
                 labelStyle:
-                    TextStyle(fontWeight: FontWeight.bold, color: kBlack),
+                    const TextStyle(fontWeight: FontWeight.bold, color: kBlack),
                 // isScrollable: true,
                 indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(10), color: kSkin),
-                tabs: [
+                tabs: const [
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       'Ingradients',
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       'Recipes',
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       'Information',
                     ),
                   ),
                 ]),
           ),
-          SizedBox(
+          const SizedBox(
             height: 16,
           ),
-          SingleChildScrollView(
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.5,
-              child: TabBarView(controller: _tabController, children: [
-                Column(
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * 0.5,
+            child: TabBarView(controller: _tabController, children: [
+              SingleChildScrollView(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: (widget.recipeData['extendedIngredients']
                           as List<dynamic>)
@@ -185,7 +186,9 @@ class _RecipeTabsState extends State<RecipeTabs>
                     );
                   }).toList(),
                 ),
-                Html(
+              ),
+              SingleChildScrollView(
+                child: Html(
                   data: widget.recipeData['instructions'],
                   style: {
                     "ol": Style(
@@ -196,18 +199,20 @@ class _RecipeTabsState extends State<RecipeTabs>
                     ),
                   },
                 ),
-                Column(
+              ),
+              SingleChildScrollView(
+                child: Column(
                   children: [
                     Container(
                       margin:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 21),
+                          const EdgeInsets.symmetric(vertical: 12, horizontal: 21),
                       padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 21),
+                          const EdgeInsets.symmetric(vertical: 12, horizontal: 21),
                       decoration: BoxDecoration(
                           // border: Border.all(),
                           color: kSkiesh,
                           borderRadius: BorderRadius.circular(21),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(color: Colors.black, blurRadius: 3)
                           ]),
                       child: Row(
@@ -216,12 +221,12 @@ class _RecipeTabsState extends State<RecipeTabs>
                           widget.recipeData['readyInMinutes'] != null
                               ? Column(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.watch_later,
                                       size: 36,
                                       color: kPink,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Ready In',
                                       style: TextStyle(color: kPink),
                                     ),
@@ -233,17 +238,17 @@ class _RecipeTabsState extends State<RecipeTabs>
                           widget.recipeData['servings'] != null
                               ? Column(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.dining_sharp,
                                       size: 36,
                                       color: kPink,
                                     ),
-                                    Text(
+                                    const Text(
                                       'Servings',
                                       style: TextStyle(color: kPink),
                                     ),
-                                    Text(
-                                      '${widget.recipeData['servings'].toString()}',
+                                    Text( 
+                                      widget.recipeData['servings'].toString(),
                                     )
                                   ],
                                 )
@@ -253,7 +258,7 @@ class _RecipeTabsState extends State<RecipeTabs>
                     ),
                     widget.recipeData['diets'].isNotEmpty
                         ? ListTile(
-                            title: Text('Diets'),
+                            title: const Text('Diets'),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: (widget.recipeData['diets'] as List)
@@ -266,7 +271,7 @@ class _RecipeTabsState extends State<RecipeTabs>
                         : Container(),
                     widget.recipeData['dishTypes'].isNotEmpty
                         ? ListTile(
-                            title: Text('dishTypes'),
+                            title: const Text('dishTypes'),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: (widget.recipeData['dishTypes'] as List)
@@ -280,19 +285,19 @@ class _RecipeTabsState extends State<RecipeTabs>
                         ? Center(
                             child: Text(
                               'creadits: ${widget.recipeData['creditsText'].toString()}',
-                              style: TextStyle(color: kBlack),
+                              style: const TextStyle(color: kBlack),
                             ),
                           )
                         : Container()
                   ],
-                )
-              ]),
-            ),
+                ),
+              )
+            ]),
           )
         ],
       );
     } on Exception catch (e) {
-      return Center(
+      return const Center(
         child: Text('Something went wrong ... '),
       );
     }

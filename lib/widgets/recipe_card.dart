@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
 import 'package:whats_in_your_fridge/pages/recipe_page.dart';
 import 'package:whats_in_your_fridge/utils/colors.dart';
+import 'package:whats_in_your_fridge/utils/constant.dart';
 
 class RecipeCard extends StatelessWidget {
   String title;
@@ -24,7 +25,7 @@ class RecipeCard extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.black,
             borderRadius: BorderRadius.circular(32),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: kBlack,
                 blurRadius: 3,
@@ -58,7 +59,7 @@ class RecipeCard extends StatelessWidget {
                         );
                       },
                     ),
-                    Text(
+                    const Text(
                       '8/10',
                       style: TextStyle(
                           fontSize: 26,
@@ -69,7 +70,7 @@ class RecipeCard extends StatelessWidget {
                 ),
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: kSkiesh,
                       fontSize: 36,
                       fontWeight: FontWeight.bold),

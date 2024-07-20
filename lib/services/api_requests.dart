@@ -5,9 +5,9 @@ import 'package:http/http.dart' as http;
 Future<String?> geminyQuery(String query) async {
   const apiKey = 'AIzaSyAAvmxbVy8qcLotR34MB36klygYgNGnS2g';
   final contentString =
-      'i am using spoonacular api for finding recipes. this is the string: \' $query\'. simply just give me a url without any description, remove apikey parameter from url. if url generation is not possible replay with "NO".';
+      'i am using spoonacular api for finding recipes. this is the string: \'$query\'. simply just give me a url without any description, remove apikey parameter from url. if url generation is not possible replay with "NO".';
 
-  print(contentString);
+  // print(contentString);
 
   final model = GenerativeModel(
       model: 'gemini-1.5-flash',
@@ -18,6 +18,7 @@ Future<String?> geminyQuery(String query) async {
 
   final content = [Content.text(contentString)];
   final response = await model.generateContent(content);
+  print(response.text);
   return response.text;
 }
 
@@ -47,15 +48,16 @@ Future<Map<String, dynamic>?> getRecipeList(String query) async {
 
 Future<Map<String, dynamic>?> getRecipe(String id) async {
   const apiKey = '2166f50937b34677ab4602d5485baa83';
-  String url = 'https://api.spoonacular.com/recipes/$id/information?apiKey=$apiKey';
+  String url =
+      'https://api.spoonacular.com/recipes/$id/information?apiKey=$apiKey';
 
-    Uri uri = Uri.parse(url);
+  Uri uri = Uri.parse(url);
 
-    var response = await http.get(uri);
+  var response = await http.get(uri);
 
-    if (response.statusCode == 200) {
-      return jsonDecode(response.body);
-    } else {
-      return null;
-    }
-  } 
+  if (response.statusCode == 200) {
+    return jsonDecode(response.body);
+  } else {
+    return null;
+  }
+}
