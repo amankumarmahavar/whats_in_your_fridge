@@ -1,16 +1,51 @@
-# whats_in_your_fridge
+# What's in My Fridge 🥗🎙️  
 
-A new Flutter project.
+## Introduction  
 
-## Getting Started
+**What's in My Fridge** is a **voice-activated recipe app** that helps users find the best recipes based on the ingredients they have. By leveraging **AI-powered processing** and an extensive recipe database, the app makes meal planning effortless and intuitive.  
 
-This project is a starting point for a Flutter application.
+## Features  
 
-A few resources to get you started if this is your first Flutter project:
+✅ **Voice Recognition**: Speak your available ingredients, and the app will generate relevant recipes.  
+✅ **AI-Powered Processing**: Uses the **Gemini AI Engine** to intelligently interpret user input.  
+✅ **Recipe Suggestions**: Fetches up to **10 relevant recipes** from the **Spoonacular API**.  
+✅ **Detailed Recipe Information**: Provides ingredients, preparation steps, dish types (**lunch, dinner, snacks**), and more.  
+✅ **Dietary Preferences**: Supports filters for **primal, gluten-free, vegan**, and other dietary needs.  
+✅ **Serving Sizes**: Displays the number of servings per recipe.  
+✅ **Intuitive UI**: A clean, user-friendly design enhances the recipe discovery experience.  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Technologies Used  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Flutter** - Cross-platform UI framework for a seamless mobile experience.  
+- **Gemini AI Engine** - AI-powered processing for voice recognition and ingredient interpretation.  
+- **Spoonacular API** - Recipe retrieval with detailed nutritional and preparation information.  
+
+## Installation
+
+**Clone the Repository:**
+
+```bash
+  git clone https://github.com/amankumarmahavar/snake.git
+  cd snake-game
+```
+    
+**Check for flutter setup and connected devices**
+  ```bash
+  Flutter doctor
+```  
+
+**Get all the dependencies using**
+```bash
+  flutter pub get
+```
+
+**Run the app**
+```bash
+  flutter run
+```
+## Screenshots
+<img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/main/ss/1.jpg" width="24%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/main/ss/2.jpg" width="24%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/main/ss/3.jpg" width="24%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/main/ss/4.jpg" width="24%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/main/ss/5.jpg" width="24%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/main/ss/6.jpg" width="24%"/>
+
+## Authors
+
+- [@amanmahavar](https://github.com/amankumarmahavar)
