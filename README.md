@@ -25,13 +25,13 @@
 **Clone the Repository:**
 
 ```bash
-  git clone https://github.com/amankumarmahavar/snake.git
-  cd snake-game
+  git clone https://github.com/amankumarmahavar/whats_in_your_fridge.git
+  cd whats_in_your_fridge
 ```
     
 **Check for flutter setup and connected devices**
   ```bash
-  Flutter doctor
+  flutter doctor
 ```  
 
 **Get all the dependencies using**
@@ -44,7 +44,7 @@
   flutter run
 ```
 ## Screenshots
-<img src="https://github.com/amankumarmahavar/whats_in_your_fridge/tree/master/ss/1.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/tree/master/ss/2.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/tree/master/ss/3.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/tree/master/ss/4.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/tree/master/ss/5.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/tree/master/ss/6.jpg" width="33%"/>
+<img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/master/ss/1.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/master/ss/2.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/master/ss/3.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/master/ss/4.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/master/ss/5.jpg" width="33%"/> <img src="https://github.com/amankumarmahavar/whats_in_your_fridge/blob/master/ss/6.jpg" width="33%"/>
 
 ## Authors
 
